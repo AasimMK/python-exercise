@@ -53,10 +53,10 @@ def grouper(n, iterable, fillvalue=None):
 
 def fileSort(chunk):
     with open('random.txt') as f:
-        for i, g in enumerate(grouper(N, f.read().splitlines(), fillvalue=''), 1):
-            with open('chunk_{0}'.format(i * N), 'w') as fout:
+        for i, g in enumerate(grouper(chunk, f.read().splitlines(), fillvalue=''), 1):
+            with open('chunk_{0}'.format(i * chunk), 'w') as fout:
                 sorted_val = mergeAndSort(list(map(int, g)))
-                #print(i * N)
+                #print(i * chunk)
                 fout.writelines('\n'.join(list(map(str, sorted_val))))
 
 N = 1000
